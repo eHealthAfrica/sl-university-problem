@@ -1,0 +1,109 @@
+body {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: whitesmoke;
+}
+
+.container {
+  position: absolute;
+  top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid cadetblue;
+  padding: 10px;
+  width: auto;
+  box-shadow:0 0 5px 5px #DDDDDD;
+  background-color: aliceblue;
+}
+
+#logo-image {
+  float: left;
+  width: 40%;
+  overflow: hidden;
+}
+
+#logo-image img {
+  margin-top: 20%;
+}
+
+/* Registration */
+.registration .form {
+  border-left: 2px solid cadetblue;
+  padding: 10px;
+  float: left;
+  width: 50%;
+}
+
+#username {
+  display: block;
+  width: 200px;
+  height: 25px;
+}
+
+#saveUser {
+  width: 50px;
+  height: 30px;
+  float: right;
+}
+
+/* End Registration */
+
+
+/* Edit */
+.edit {
+  display: None;
+  width: 40%;
+}
+
+#title {
+  display: block;
+  width: 90%;
+  height: 25px;
+}
+
+#body {
+  display: block;
+  width: 90%;
+  height: 100px;
+}
+
+#savePost {
+  width: 50px;
+  height: 30px;
+  float: right;
+}
+#listPosts {
+  width: 100px;
+  height: 30px;
+  float: right;
+}
+/* End Edit */
+
+/* List */
+.list {
+  display: None;
+  width: 40%;
+}
+
+table {
+  width: 100%;
+  border-spacing: 8px;
+}
+
+tr:hover {
+  background-color: white;
+}
+
+td {
+  width: 50%;
+  padding: 10px;
+}
+
+#create {
+  width: 100px;
+  height: 30px;
+  float: right;
+}
+
+/* End List */

@@ -1,0 +1,16 @@
+{
+  "name": "sl-uni-freshmen-code-workout",
+  "version": "1.0.0",
+  "description": "A simple code workout for university freshmen students",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Limkwokwig",
+    "Ehealth Africa",
+    "code workout"
+  ],
+  "author": "Information Systems Department, Sierra Leone",
+  "license": "ISC"
+}

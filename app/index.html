@@ -1,0 +1,81 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Simple Blog</title>
+        <meta name="description" content="Limkwokwig code workout">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Icon -->
+        <link rel="eha icon" type="image/png"  href="assets/icon.png">
+
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <!-- Begin Registration -->
+        <div class="container registration">
+          <div id="logo-image">
+            <img src="assets/ehealth-africa-logo.png" alt="eHA Logo" />
+          </div>
+          <div class="form">
+            <label for="username" >Enter a Username:</label>
+            <br />
+            <input type="text" id="username" />
+            <br />
+            <button id="saveUser" type="button" >OK</button>
+          </div>
+        </div>
+        <!-- End Registration -->
+
+        <!-- Begin New Post -->
+        <div class="container edit">
+          <h3>
+            Create New Post
+            <span>
+              <button id="listPosts">List</button>
+            </span>
+          </h3>
+          <div>
+            <label for="title">Title:</label>
+            <br />
+            <input maxlength="20" type="text" id="title" />
+            <br />
+            <label for="body" >Body:</label>
+            <br />
+            <textarea id="body"></textarea>
+            <br />
+            <button id="savePost" type="button" >Save</button>
+          </div>
+        </div>
+        <!-- End New Post -->
+
+        <!-- Begin Post List -->
+        <div class="container list">
+          <h3>
+            List of Posts
+            <span>
+              <button id="create">New Post</button>
+            </span>
+          </h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Last Edited by</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+          </table>
+          <p id="postless">No posts recorded yet!</p>
+        </div>
+        <!-- End Post List -->
+
+        <script src="main.js"></script>
+    </body>
+</html>
