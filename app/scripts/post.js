@@ -2,45 +2,56 @@
 class Post{
   constructor(){
     this.posts = [];
-    this.API = '';
+    this.API = 'http://127.0.0.1:5984';
+
+    this.refreshPostList();
   }
 
-  getAjax(url, success) {
-    var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    xhr.open('GET', url);
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState>3 && xhr.status==200) success(xhr.responseText);
-    };
-    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    xhr.send();
-    return xhr;
+  savePostInAPI(post) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', this.API + '/posts', false);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(post));
   }
 
-  postAjax(url, data, success) {
-    var params = typeof data == 'string' ? data : Object.keys(data).map(
-            function(k){ return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]) }
-        ).join('&');
+  refreshPostList() {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', this.API + '/posts/_all_docs?include_docs=true', false);
+    xhr.send(null);
 
-    var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
-    xhr.open('POST', url);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState>3 && xhr.status==200) { success(xhr.responseText); }
-    };
-    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send(params);
-    return xhr;
+    let resp = JSON.parse(xhr.responseText);
+
+    this.posts = [];
+    for (let i = 0; i < resp.rows.length ; i++) {
+      let doc = resp.rows[i];
+      let newPost = {
+        title: doc.doc.title,
+        body: doc.doc.body,
+        lastModified: doc.doc.lastModified,
+        id: i
+      }
+
+      console.log(newPost);
+
+      this.posts.push(newPost);
+    }
+
+    console.log("Done refreshing!");
+    console.log(this.posts);
   }
 
   savePost(title, body) {  // ajax
     let post = {
-      id: this.posts.length + 1,
       title: title,
       body: body,
       lastModified: registration.user
     }
 
     this.posts.push(post);
+    this.savePostInAPI(post);
+    console.log('Saved!')
+    this.refreshPostList();
+    console.log('Refreshed!');
     events.trigger(eventNames.saved, post);
   }
 
