@@ -8,10 +8,7 @@ class Post{
   }
 
   savePostInAPI(post) {
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', this.API + '/posts', false);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify(post));
+    console.log("Fill me with code!");
   }
 
   refreshPostList() {
