@@ -34,13 +34,15 @@ class List{
       this.table.style = 'display: block;';
       this.postLess.style = 'display: None;';
 
-      //show posts
-      for (var i = 0; i < posts.posts.length; i++) {
-        this.postCreate(posts.posts[i]);
-      }
-
       // bind event handlers
       this.bindTableRowClick();
+    }
+  }
+
+  initTableRows() {
+    //show posts
+    for (var i = 0; i < posts.posts.length; i++) {
+      this.postCreate(posts.posts[i]);
     }
   }
 
@@ -94,6 +96,7 @@ class List{
     events.on(eventNames.list, this.show.bind(this));
     events.on(eventNames.edit, this.hide.bind(this));
     events.on(eventNames.saved, this.postCreate.bind(this));
+    events.on(eventNames.loaded, this.initTableRows.bind(this));
   }
 }
 

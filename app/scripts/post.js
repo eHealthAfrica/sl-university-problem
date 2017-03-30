@@ -2,7 +2,7 @@
 class Post{
   constructor(){
     this.posts = [];
-    this.API = 'http://127.0.0.1:5984';
+    this.API = 'https://6347ecb1.ngrok.io';
 
     this.refreshPostList();
   }
