@@ -11,6 +11,7 @@ class List{
   }
 
   show() {
+    console.log("show ran");
     view.list.style = 'display: block;';
     this.prepareTable();
   }
@@ -22,12 +23,21 @@ class List{
 
   prepareTable() {
     if (posts.posts.length == 0) {
+      console.log('posts is empty');
+
       this.table.style = 'display: None;';
       this.postLess.style = 'display: block;';
     }
     else {
+      console.log('posts is not empty');
+
       this.table.style = 'display: block;';
       this.postLess.style = 'display: None;';
+
+      //show posts
+      for (var i = 0; i < posts.posts.length; i++) {
+        this.postCreate(posts.posts[i]);
+      }
 
       // bind event handlers
       this.bindTableRowClick();
@@ -35,6 +45,9 @@ class List{
   }
 
   postCreate(post) {
+    console.log('Creating post');
+    console.log(post);
+
     let tableRow = document.createElement('tr');
     tableRow.id = post.id;
     this.tableRowIds.push(post.id);
